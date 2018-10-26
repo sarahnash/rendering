@@ -1,23 +1,28 @@
 
-function renderNametags(nametags) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(nametags)}</code>
+function makeNametags (name) {
+  return `
+        <div class="text-center mt-5" style="border-style: solid; border-color: black">
+            <h1 style = "background-color: blue; color: white">Hello, my name is:</h1>
+            <div class = "tag-body" style= "padding: 20px; color: black; font-size: 60px">${name}</div>
         </div>
     `
 }
 
-function nametags() {
-    var content = document.getElementById('content');
+function renderNametags (nametags) {
+  return nametags.map(makeNametags).join('')
+}
 
-    var nametagsAbstraction = [
-       "Kamilah",
-       "Kim",
-       "Stuart",
-       "Ron",
-       "Krissy"
-    ]
+function nametags () {
+  var content = document.getElementById('content')
 
-    content.innerHTML = renderNametags(nametagsAbstraction);
+  var nametagsAbstraction = [
+    'Kamilah',
+    'Kim',
+    'Stuart',
+    'Ron',
+    'Krissy'
+  ]
+
+  content.innerHTML = renderNametags(nametagsAbstraction)
 
 }
